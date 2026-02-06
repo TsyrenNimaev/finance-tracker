@@ -1,0 +1,49 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--color-secondary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-secondary-hover);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  }
+
+  .icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .text {
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover .icon {
+    transform: rotate(15deg);
+  }
+
+  :global([data-theme="dark"]) & {
+    background-color: var(--color-secondary);
+
+    &:hover {
+      background-color: var(--color-secondary-hover);
+    }
+  }
+}

@@ -12,6 +12,7 @@
   // Фон
   --color-background: #ffffff;
   --color-background-secondary: #f9fafb;
+  --card-bg: var(--color-background);
   
   // Границы
   --color-border: #d1d5db;
@@ -23,6 +24,8 @@
   --color-disabled: #f3f4f6;
   
   // Тени
+  --card-shadow: var(--shadow-md);
+  --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.1);
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
@@ -38,4 +41,7 @@
   --color-background-secondary: #1f2937;
   --color-border: #4b5563;
   --color-disabled: #374151;
+  --card-bg: var(--color-background-secondary);
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.4);
 }

@@ -1,0 +1,35 @@
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+
+  &.padding-none {
+    padding: 0;
+  }
+
+  &.padding-small {
+    padding: 12px;
+  }
+
+  &.padding-medium {
+    padding: 20px;
+  }
+
+  &.padding-large {
+    padding: 32px;
+  }
+
+  &.hoverable {
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  :global([data-theme="dark"]) & {
+    --card-bg: var(--color-background-secondary);
+    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+    --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.4);
+  }
+}
