@@ -11,12 +11,12 @@
 .label {
   font-size: 14px;
   font-weight: 500;
-  color: var(--color-text, #374151);
+  color: var(--color-text);
 }
 
 .input {
   padding: 10px 14px;
-  border: 2px solid var(--color-border, #d1d5db);
+  border: 2px solid var(--color-border);
   border-radius: 8px;
   font-size: 16px;
   transition: border-color 0.2s ease;
@@ -24,11 +24,11 @@
 
   &:focus {
     outline: none;
-    border-color: var(--color-primary, #4f46e5);
+    border-color: var(--color-primary);
   }
 
   &.error {
-    border-color: var(--color-error, #dc2626);
+    border-color: var(--color-error);
   }
 
   &.fullWidth {
@@ -36,12 +36,12 @@
   }
 
   &:disabled {
-    background-color: var(--color-disabled, #f3f4f6);
+    background-color: var(--color-disabled);
     cursor: not-allowed;
   }
 }
 
 .errorText {
-  color: var(--color-error, #dc2626);
+  color: var(--color-error);
   font-size: 14px;
 }

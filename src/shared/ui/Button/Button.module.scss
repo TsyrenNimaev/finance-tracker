@@ -15,30 +15,30 @@
   }
 
   &.variant-primary {
-    background-color: var(--color-primary, #4f46e5);
+    background-color: var(--color-primary);
     color: white;
 
     &:hover:not(:disabled) {
-      background-color: var(--color-primary-hover, #4338ca);
+      background-color: var(--color-primary-hover);
     }
   }
 
   &.variant-secondary {
-    background-color: var(--color-secondary, #f3f4f6);
-    color: var(--color-text, #374151);
+    background-color: var(--color-secondary);
+    color: var(--color-text);
 
     &:hover:not(:disabled) {
-      background-color: var(--color-secondary-hover, #e5e7eb);
+      background-color: var(--color-secondary-hover);
     }
   }
 
   &.variant-outline {
     background-color: transparent;
-    color: var(--color-primary, #4f46e5);
-    border: 2px solid var(--color-primary, #4f46e5);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
 
     &:hover:not(:disabled) {
-      background-color: var(--color-primary, #4f46e5);
+      background-color: var(--color-primary);
       color: white;
     }
   }
@@ -77,4 +77,16 @@
 
 @keyframes spin {
   to { transform: rotate(360deg);}
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
