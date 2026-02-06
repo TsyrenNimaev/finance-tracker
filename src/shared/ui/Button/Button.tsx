@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   children,
   variant = 'primary',
   size = 'medium',
@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   disabled,
   ...props
-}) => {
+}: ButtonProps) => {
   const buttonClasses = [
     styles.button,
     styles[`variant-${variant}`],
@@ -33,7 +33,14 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading ? 'Загрузка...' : children}
+      {isLoading ? (
+        <>
+          <span className={styles.visuallyHidden}>Загрузка</span>
+          <span aria-hidden='true'>Загрузка...</span>
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 };
