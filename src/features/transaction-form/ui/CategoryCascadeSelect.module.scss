@@ -1,0 +1,39 @@
+.cascadeSelect {
+  margin-bottom: 16px;
+}
+
+.selectWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.select {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+}
+
+.createButton {
+  white-space: nowrap;
+}
+
+.createWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.createActions {
+  display: flex;
+  gap: 8px;
+}
