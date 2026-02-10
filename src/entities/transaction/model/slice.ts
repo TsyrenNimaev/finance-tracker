@@ -10,7 +10,7 @@ const initialState: TransactionState = {
       date: new Date().toISOString(),
       type: 'expense',
       categoryId: 'cat-3-1',
-      createAt: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
     },
     {
       id: '2',
@@ -19,7 +19,7 @@ const initialState: TransactionState = {
       date: new Date().toISOString(),
       type: 'income',
       categoryId: 'cat-1-1',
-      createAt: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
     },
   ],
   isLoading: false,
@@ -30,7 +30,7 @@ const transactionSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
-    addTransitions: (state, action: PayloadAction<Transaction>) => {
+    addTransition: (state, action: PayloadAction<Transaction>) => {
       state.items.unshift(action.payload);
     },
     updateTransaction: (state, action: PayloadAction<Transaction>) => {
@@ -55,7 +55,7 @@ const transactionSlice = createSlice({
 });
 
 export const {
-  addTransitions,
+  addTransition,
   updateTransaction,
   deleteTransaction,
   setTransactions,

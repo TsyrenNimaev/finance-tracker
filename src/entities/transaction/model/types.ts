@@ -7,7 +7,7 @@ export interface Transaction {
   date: string; //ISO строка
   type: TransactionType;
   categoryId: string; // Ссылка на ID категории 3-го уровня
-  createAt: string;
+  createdAt: string;
 }
 
 export interface TransactionFormData {
