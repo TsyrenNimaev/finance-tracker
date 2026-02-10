@@ -23,7 +23,7 @@ export const validateTransactionForm = (
   }
 
   // Проверка категории 3-го уровня
-  if (!data.catygoryLevel3) {
+  if (!data.categoryLevel3) {
     errors.catygoryLevel3 = 'Выберите категорию';
   }
 

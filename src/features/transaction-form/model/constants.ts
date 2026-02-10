@@ -9,7 +9,7 @@ export const DEFAULT_FORM_VALUES: TransactionFormData = {
   amount: '',
   description: '',
   type: 'expense',
-  catygoryLevel1: 'expense',
-  catygoryLevel2: '',
-  catygoryLevel3: '',
+  categoryLevel1: 'expense',
+  categoryLevel2: '',
+  categoryLevel3: '',
 };

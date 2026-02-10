@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/store/hooks';
 import type { TransactionFormData } from './types';
 import { DEFAULT_FORM_VALUES } from './constants';
 import type { Category } from '../../../entities/category/model/types';
-import { addCarygory } from '../../../entities/category/model/slice';
+import { addCaregory } from '../../../entities/category/model/slice';
 import { validateTransactionForm } from './validation';
 import { addTransition } from '../../../entities/transaction/model/slice';
 
@@ -43,7 +43,7 @@ export const useTransactionForm = () => {
         parentId,
         level,
       };
-      dispatch(addCarygory(newCategoty));
+      dispatch(addCaregory(newCategoty));
       return newCategoty.id;
     },
     [dispatch],
@@ -81,12 +81,13 @@ export const useTransactionForm = () => {
         description: formData.description,
         date: new Date().toISOString(),
         type: formData.type,
-        categoryId: formData.catygoryLevel3,
+        categoryId: formData.categoryLevel3,
         createdAt: new Date().toISOString(),
       };
 
       dispatch(addTransition(newTransaction));
     } catch (error) {
+      console.error('Transaction submission error', error);
       setErrors({ submit: 'Ошибка при сохранении' });
       return false;
     } finally {

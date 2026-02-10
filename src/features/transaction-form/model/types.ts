@@ -4,9 +4,9 @@ export interface TransactionFormData {
   amount: string;
   description: string;
   type: TransactionType;
-  catygoryLevel1: string; // 'income' or 'expense'
-  catygoryLevel2: string;
-  catygoryLevel3: string;
+  categoryLevel1: string; // 'income' or 'expense'
+  categoryLevel2: string;
+  categoryLevel3: string;
 }
 
 export interface CategoryOption {
@@ -23,5 +23,5 @@ export interface CascadeSelectProps {
   level: number;
   placeholder?: string;
   allowCreate?: boolean;
-  onCreateCategory?: (name: string, parentId: string | null) => void;
+  onCreateCategory?: (name: string, parentId: string | null) => string;
 }
