@@ -1,0 +1,54 @@
+.formCard {
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.fieldGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.typeButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.typeButton {
+  flex: 1;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+}
+
+.error {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-error);
+  font-size: 14px;
+}
+
+.actions {
+  margin-top: 32px;
+}
