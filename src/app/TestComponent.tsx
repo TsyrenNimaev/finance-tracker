@@ -1,4 +1,4 @@
-import { addCarygory } from '../entities/category/model/slice';
+import { addCaregory } from '../entities/category/model/slice';
 import { addTransition } from '../entities/transaction/model/slice';
 import { Button } from '../shared/ui/Button';
 import { Card } from '../shared/ui/Card';
@@ -29,7 +29,7 @@ export const TestComponent = () => {
       parentId: 'products',
       level: 3,
     };
-    dispatch(addCarygory(newCategory));
+    dispatch(addCaregory(newCategory));
   };
 
   return (
