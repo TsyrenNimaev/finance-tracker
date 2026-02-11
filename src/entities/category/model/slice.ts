@@ -21,7 +21,7 @@ const initialState: CategoriesState = {
     { id: 'cat-3-1', name: 'Хлеб', parentId: 'products', level: 3 },
     { id: 'cat-3-2', name: 'Огурцы', parentId: 'products', level: 3 },
     { id: 'cat-3-3', name: 'Телефон', parentId: 'communication', level: 3 },
-    { id: 'cat-3-3', name: 'Основная зарплата', parentId: 'salary', level: 3 },
+    { id: 'cat-3-4', name: 'Основная зарплата', parentId: 'salary', level: 3 },
   ],
   isLoading: false,
   error: null,

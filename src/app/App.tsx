@@ -3,9 +3,10 @@
 // import { Input } from '../shared/ui/Input';
 // import { ThemeToggle } from '../shared/ui/ThemeToggle';
 import { TransactionForm } from '../features/transaction-form';
+import { TransactionList } from '../features/transactions-list/ui/TransactionList';
 import { StoreProvider } from './providers';
 import './styles/global.scss';
-import { TestComponent } from './TestComponent';
+// import { TestComponent } from './TestComponent';
 
 function App() {
   return (
@@ -19,12 +20,8 @@ function App() {
             gap: '40px',
           }}
         >
-          <div>
-            <TransactionForm />
-          </div>
-          <div>
-            <TestComponent />
-          </div>
+          <TransactionForm />
+          <TransactionList />
         </div>
       </div>
     </StoreProvider>

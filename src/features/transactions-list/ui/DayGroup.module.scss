@@ -1,0 +1,53 @@
+@use '../../../app/styles/variables.scss';
+
+.dayGroup {
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.date {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: capitalize;
+  margin: 0;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.total {
+  font-size: 18px;
+  font-weight: 700;
+
+  &.positive {
+    color: var(--color-success);
+  }
+
+  &.negative {
+    color: var(--color-error);
+  }
+}
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+
+  > :first-child {
+    padding-top: 0;
+  }
+}
