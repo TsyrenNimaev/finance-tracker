@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from './store/hooks';
 
 export const TestComponent = () => {
   const dispatch = useAppDispatch();
-  const transactions = useAppSelector((state) => state.trasactions.items);
+  const transactions = useAppSelector((state) => state.transactions.items);
   const categories = useAppSelector((state) => state.categories.items);
 
   const handleAddTransaction = () => {

@@ -45,15 +45,15 @@ export const TransactionForm = () => {
   );
 
   const handleCreateLevel2Category = useCallback(
-    (name: string) => {
-      return handleCreateCategory(name, formData.categoryLevel1, 2);
+    async (name: string) => {
+      return await handleCreateCategory(name, formData.categoryLevel1, 2);
     },
     [handleCreateCategory, formData.categoryLevel1],
   );
 
   const handleCreateLevel3Category = useCallback(
-    (name: string) => {
-      return handleCreateCategory(name, formData.categoryLevel2, 3);
+    async (name: string) => {
+      return await handleCreateCategory(name, formData.categoryLevel2, 3);
     },
     [handleCreateCategory, formData.categoryLevel2],
   );
