@@ -1,5 +1,6 @@
 import { useAppDispatch } from '../../../app/store/hooks';
 import { deleteTransaction } from '../../../entities/transaction/model/slice';
+import { deleteTransactionFromDB } from '../../../shared/api/db-operations';
 import { Card } from '../../../shared/ui/Card';
 import { useEnrichedTransactions } from '../model/hooks';
 import { DayGroup } from './DayGroup';
@@ -22,8 +23,15 @@ export const TransactionList = () => {
     {} as Record<string, typeof transactions>,
   );
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     dispatch(deleteTransaction(id));
+
+    try {
+      await deleteTransactionFromDB(id);
+      console.log(`Transaction ${id} deleted from DB`);
+    } catch (error) {
+      console.error('Failed to delete from DB', error);
+    }
   };
 
   if (transactions.length === 0) {

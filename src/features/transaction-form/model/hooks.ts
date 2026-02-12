@@ -6,6 +6,10 @@ import type { Category } from '../../../entities/category/model/types';
 import { addCaregory } from '../../../entities/category/model/slice';
 import { validateTransactionForm } from './validation';
 import { addTransition } from '../../../entities/transaction/model/slice';
+import {
+  addCategoryToDB,
+  addTransactionToDB,
+} from '../../../shared/api/db-operations';
 
 export const useTransactionForm = () => {
   const dispatch = useAppDispatch();
@@ -36,15 +40,16 @@ export const useTransactionForm = () => {
 
   // Добавление новой категории
   const handleCreateCategory = useCallback(
-    (name: string, parentId: string | null, level: number) => {
-      const newCategoty: Category = {
+    async (name: string, parentId: string | null, level: number) => {
+      const newCategory: Category = {
         id: `cat-${Date.now()}`,
         name,
         parentId,
         level,
       };
-      dispatch(addCaregory(newCategoty));
-      return newCategoty.id;
+      dispatch(addCaregory(newCategory));
+      await addCategoryToDB(newCategory);
+      return newCategory.id;
     },
     [dispatch],
   );
@@ -86,6 +91,8 @@ export const useTransactionForm = () => {
       };
 
       dispatch(addTransition(newTransaction));
+      await addTransactionToDB(newTransaction);
+      resetForm();
     } catch (error) {
       console.error('Transaction submission error', error);
       setErrors({ submit: 'Ошибка при сохранении' });

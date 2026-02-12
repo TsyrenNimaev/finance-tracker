@@ -3,7 +3,7 @@ import transactionReducer from '../../entities/transaction/model/slice';
 import categoriesReducer from '../../entities/category/model/slice';
 
 const rootReducer = combineReducers({
-  trasactions: transactionReducer,
+  transactions: transactionReducer,
   categories: categoriesReducer,
 });
 
