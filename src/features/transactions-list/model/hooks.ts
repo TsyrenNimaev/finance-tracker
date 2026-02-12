@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useAppSelector } from '../../../app/store/hooks';
 
 export const useEnrichedTransactions = () => {
-  const transactions = useAppSelector((state) => state.trasactions.items);
+  const transactions = useAppSelector((state) => state.transactions.items);
   const categories = useAppSelector((state) => state.categories.items);
 
   const enrichedTransactions = useMemo(() => {
