@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# 💰 Finance Tracker PWA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Персональный трекер доходов и расходов**  
+Прогрессивное веб-приложение (PWA) для учёта личных финансов.  
+Работает полностью локально, сохраняет данные в браузере, доступно офлайн.
 
-Currently, two official plugins are available:
+🌐 **Демо:** [https://TsyrenNimaev.github.io/finance-tracker](https://TsyrenNimaev.github.io/finance-tracker)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 **Возможности**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ **Добавление транзакций** — доходы и расходы  
+✅ **Иерархия категорий** — 3 уровня вложенности  
+✅ **Динамическое создание категорий** — прямо из формы  
+✅ **Список транзакций** — группировка по дням  
+✅ **Удаление транзакций**  
+✅ **PWA** — установка на рабочий стол, офлайн-режим  
+✅ **Персистентность** — данные сохраняются в IndexedDB
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 **Стек технологий**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Технология                | Назначение                   |
+| ------------------------- | ---------------------------- |
+| **React 18 + TypeScript** | UI и типизация               |
+| **Redux Toolkit**         | Управление состоянием        |
+| **Vite**                  | Сборка и dev-сервер          |
+| **SCSS + CSS Modules**    | Стилизация                   |
+| **Dexie.js**              | Обёртка над IndexedDB        |
+| **Vite PWA Plugin**       | Прогрессивное веб-приложение |
+| **Feature-Sliced Design** | Архитектура                  |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 **Установка и запуск**
+
+```bash
+# 1. Клонировать репозиторий
+git clone https://github.com/TsyrenNimaev/finance-tracker.git
+
+# 2. Перейти в папку проекта
+cd finance-tracker
+
+# 3. Установить зависимости
+npm install
+
+# 4. Запустить dev-сервер
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Приложение откроется на `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🏗 Сборка и установка PWA
+
+```bash
+# Собрать production-версию
+npm run build
+
+# Запустить локальный сервер для установки
+npm run preview
 ```
+
+1. Открой `http://localhost:4173`
+2. Нажми кнопку «Установить» в адресной строке Chrome
+3. Иконка появится на рабочем столе — запуск в один клик, без IDE и сервера
+
+---
+
+## 🎯 Ближайшие планы
+
+- Отчёты и аналитика (графики, фильтр по периоду)
+- Редактирование транзакций
+- Тёмная тема
+- Общий баланс — доходы минус расходы
+- Экспорт в CSV/Excel
+- Деплой на Vercel
+
+---
