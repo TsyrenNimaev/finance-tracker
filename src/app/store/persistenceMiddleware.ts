@@ -11,7 +11,7 @@ persistenceMiddleware.startListening({
       action.type?.startsWith('categories/')
     );
   },
-  effect: async (action, listenerApi) => {
+  effect: async (_action, listenerApi) => {
     const state = listenerApi.getState() as RootState;
 
     try {

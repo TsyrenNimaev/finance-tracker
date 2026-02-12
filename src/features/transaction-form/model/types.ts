@@ -23,5 +23,5 @@ export interface CascadeSelectProps {
   level: number;
   placeholder?: string;
   allowCreate?: boolean;
-  onCreateCategory?: (name: string, parentId: string | null) => string;
+  onCreateCategory?: (name: string, parentId: string | null) => Promise<string>;
 }

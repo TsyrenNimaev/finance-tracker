@@ -32,10 +32,10 @@ export const CategoryCascadeSelect = ({
     }
   }, [parentCategoryId, level, onChange]); // value
 
-  const handleCreateNew = useCallback(() => {
+  const handleCreateNew = useCallback(async () => {
     if (!newCategoryName.trim() || !onCreateCategory) return;
 
-    const newId = onCreateCategory(
+    const newId = await onCreateCategory(
       newCategoryName.trim(),
       parentCategoryId || null,
     );
