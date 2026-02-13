@@ -1,7 +1,7 @@
-import type { Transaction } from '../../../entities/transaction/model/types';
-import { Card } from '../../../shared/ui/Card';
-import styles from './DayGroup.module.scss';
+import type { Transaction } from '@/entities/transaction/model/types';
+import { Card } from '@/shared/ui/Card';
 import { TransactionItem } from './TransactionItem';
+import styles from './DayGroup.module.scss';
 
 interface DayGroupProps {
   date: string;
