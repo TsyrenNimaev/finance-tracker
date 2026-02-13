@@ -52,3 +52,42 @@
 .actions {
   margin-top: 32px;
 }
+
+.datePickerPopper {
+  .react-datepicker {
+    background-color: var(--color-background);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+    
+  .react-datepicker__header {
+    background-color: var(--color-secondary);
+    border-bottom-color: var(--color-border);
+  }
+
+  .react-datepicker__current-month,
+  .react-datepicker__day-name {
+    color: var(--color-text);
+  }
+
+  .react-datepicker__day {
+    color: var(--color-text);
+
+    &:hover {
+      background-color: var(--color-secondary-hover);
+    }
+
+    &--selected {
+      background-color: var(--color-primary);
+      color: white;
+
+      &:hover {
+        background-color: var(--color-primary-hover);
+      }
+    }
+
+    &--keyboard-selected {
+      background-color: var(--color-primary); // var(--color-primary-light)
+    }
+  }
+}

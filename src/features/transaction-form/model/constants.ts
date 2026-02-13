@@ -12,4 +12,5 @@ export const DEFAULT_FORM_VALUES: TransactionFormData = {
   categoryLevel1: 'expense',
   categoryLevel2: '',
   categoryLevel3: '',
+  date: new Date().toISOString().split('T')[0],
 };

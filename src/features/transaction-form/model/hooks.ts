@@ -1,15 +1,15 @@
 import { useCallback, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../app/store/hooks';
-import type { TransactionFormData } from './types';
+import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { DEFAULT_FORM_VALUES } from './constants';
-import type { Category } from '../../../entities/category/model/types';
-import { addCaregory } from '../../../entities/category/model/slice';
+import { addCaregory } from '@/entities/category/model/slice';
 import { validateTransactionForm } from './validation';
-import { addTransition } from '../../../entities/transaction/model/slice';
+import { addTransition } from '@/entities/transaction/model/slice';
+import type { TransactionFormData } from './types';
+import type { Category } from '@/entities/category/model/types';
 import {
   addCategoryToDB,
   addTransactionToDB,
-} from '../../../shared/api/db-operations';
+} from '@/shared/api/db-operations';
 
 export const useTransactionForm = () => {
   const dispatch = useAppDispatch();
@@ -84,10 +84,9 @@ export const useTransactionForm = () => {
           formData.amount.replace(/\s/g, '').replace(',', '.'),
         ),
         description: formData.description,
-        date: new Date().toISOString(),
+        date: formData.date,
         type: formData.type,
         categoryId: formData.categoryLevel3,
-        createdAt: new Date().toISOString(),
       };
 
       dispatch(addTransition(newTransaction));

@@ -92,20 +92,6 @@
   }
 }
 
-.time {
-  font-size: 13px;
-  color: var(--color-text-light);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-
-  &::before {
-    content: "•";
-    margin-right: 4px;
-    color: var(--color-border);
-  }
-}
-
 .deleteButton {
   background: none;
   border: none;

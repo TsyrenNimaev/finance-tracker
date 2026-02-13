@@ -16,7 +16,6 @@ export const TransactionItem = ({
   id,
   amount,
   description,
-  date,
   type,
   categoryName,
   parentCategoryName,
@@ -28,11 +27,6 @@ export const TransactionItem = ({
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount);
-
-  const time = new Date(date).toLocaleTimeString('ru-Ru', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
 
   return (
     <div className={styles.transaction}>
@@ -55,7 +49,6 @@ export const TransactionItem = ({
           {description && (
             <span className={styles.description}>{description}</span>
           )}
-          <span className={styles.time}>{time}</span>
         </div>
       </div>
 

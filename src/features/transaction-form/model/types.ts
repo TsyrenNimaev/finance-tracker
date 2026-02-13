@@ -1,4 +1,4 @@
-import type { TransactionType } from '../../../entities/transaction/model/types';
+import type { TransactionType } from '@/entities/transaction/model/types';
 
 export interface TransactionFormData {
   amount: string;
@@ -7,6 +7,7 @@ export interface TransactionFormData {
   categoryLevel1: string; // 'income' or 'expense'
   categoryLevel2: string;
   categoryLevel3: string;
+  date: string;
 }
 
 export interface CategoryOption {
