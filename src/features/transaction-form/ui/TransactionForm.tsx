@@ -1,11 +1,14 @@
 import { useCallback, useMemo, type SyntheticEvent } from 'react';
+import { Card } from '@/shared/ui/Card';
+import { Button } from '@/shared/ui/Button';
 import { useTransactionForm } from '../model/hooks';
-import styles from './TransactionForm.module.scss';
-import { Card } from '../../../shared/ui/Card';
 import { TRANSACTION_TYPES } from '../model/constants';
-import { Button } from '../../../shared/ui/Button';
 import { AmountInput } from './AmountInput';
 import { CategoryCascadeSelect } from './CategoryCascadeSelect';
+import { ru } from 'date-fns/locale';
+import { DatePickerInput } from './DatePickerInput';
+import DatePicker from 'react-datepicker';
+import styles from './TransactionForm.module.scss';
 
 export const TransactionForm = () => {
   const {
@@ -63,13 +66,26 @@ export const TransactionForm = () => {
     await handleSubmit();
   };
 
+  const handleDateChange = (date: Date | null) => {
+    console.log('DatePicker onChange:', date);
+
+    if (date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      updateField('date', `${year}-${month}-${day}`);
+    } else {
+      updateField('date', '');
+    }
+  };
+
   return (
     <Card padding='large' className={styles.formCard}>
       <h2 className={styles.title}>Добавить транзакцию</h2>
 
       <form onSubmit={handleFormSubmit}>
         <div className={styles.fieldGroup}>
-          <label className={styles.label}>ТИп операции</label>
+          <label className={styles.label}>Тип операции</label>
           <div className={styles.typeButtons}>
             {TRANSACTION_TYPES.map(({ value, label }) => (
               <Button
@@ -108,6 +124,20 @@ export const TransactionForm = () => {
           {errors.description && (
             <span className={styles.error}>{errors.description}</span>
           )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <DatePicker
+            selected={
+              formData.date ? new Date(formData.date + 'T12:00:00') : null
+            }
+            onChange={handleDateChange}
+            locale={ru}
+            dateFormat='dd.MM.yyyy'
+            customInput={<DatePickerInput />}
+            popperClassName={styles.datePickerPopper}
+            placeholderText='Выберите дату'
+          />
         </div>
 
         <div className={styles.fieldGroup}>
