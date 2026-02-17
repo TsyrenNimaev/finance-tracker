@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { DEFAULT_FORM_VALUES } from './constants';
-import { addCaregory } from '@/entities/category/model/slice';
+import { addCategory } from '@/entities/category/model/slice';
 import { validateTransactionForm } from './validation';
 import { addTransition } from '@/entities/transaction/model/slice';
 import type { TransactionFormData } from './types';
@@ -79,7 +79,7 @@ export const useTransactionForm = () => {
         parentId,
         level,
       };
-      dispatch(addCaregory(newCategory));
+      dispatch(addCategory(newCategory));
       await addCategoryToDB(newCategory);
       return newCategory.id;
     },

@@ -1,0 +1,332 @@
+[
+  {
+    "id": "type_income",
+    "name": "Доход",
+    "parentId": null,
+    "level": 1
+  },
+  {
+    "id": "type_expense",
+    "name": "Расходы",
+    "parentId": null,
+    "level": 1
+  },
+  {
+    "id": "group_products",
+    "name": "Продукты",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_transport",
+    "name": "Транспорт",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_housing",
+    "name": "Жильё",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_communication",
+    "name": "Связь",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_dining",
+    "name": "Еда вне дома",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_personal_care",
+    "name": "Уход",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_clothing",
+    "name": "Одежда",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_entertainment",
+    "name": "Развлечения",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_health",
+    "name": "Здоровье",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_education",
+    "name": "Образование",
+    "parentId": "type_expense",
+    "level": 2
+  },
+  {
+    "id": "group_salary",
+    "name": "Зарплата",
+    "parentId": "type_income",
+    "level": 2
+  },
+  {
+    "id": "article_bread",
+    "name": "Хлеб",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_milk",
+    "name": "Молоко",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_cucumber",
+    "name": "Огурцы",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_banana",
+    "name": "Бананы",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_meat",
+    "name": "Мясо",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_beef",
+    "name": "Говядина",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_pork",
+    "name": "Свинина",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_chicken",
+    "name": "Курица",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_eggs",
+    "name": "Яйца",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_oil",
+    "name": "Масло",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_dumplings",
+    "name": "Пельмени",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_cigarettes",
+    "name": "Сигареты",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_tobacco",
+    "name": "Табак",
+    "parentId": "group_products",
+    "level": 3
+  },
+  {
+    "id": "article_bus",
+    "name": "Автобус",
+    "parentId": "group_transport",
+    "level": 3
+  },
+  {
+    "id": "article_taxi",
+    "name": "Такси",
+    "parentId": "group_transport",
+    "level": 3
+  },
+  {
+    "id": "article_rent",
+    "name": "Аренда",
+    "parentId": "group_housing",
+    "level": 3
+  },
+  {
+    "id": "article_utilities",
+    "name": "Коммунальные платежи",
+    "parentId": "group_housing",
+    "level": 3
+  },
+  {
+    "id": "article_mobile",
+    "name": "Мобильная связь",
+    "parentId": "group_communication",
+    "level": 3
+  },
+  {
+    "id": "article_internet_home",
+    "name": "Интернет",
+    "parentId": "group_communication",
+    "level": 3
+  },
+  {
+    "id": "article_lunch",
+    "name": "Обед",
+    "parentId": "group_dining",
+    "level": 3
+  },
+  {
+    "id": "article_coffee",
+    "name": "Кофе",
+    "parentId": "group_dining",
+    "level": 3
+  },
+  {
+    "id": "article_cafe",
+    "name": "Кафе",
+    "parentId": "group_dining",
+    "level": 3
+  },
+  {
+    "id": "article_delivery",
+    "name": "Доставка",
+    "parentId": "group_dining",
+    "level": 3
+  },
+  {
+    "id": "article_barber",
+    "name": "Парикмахерская",
+    "parentId": "group_personal_care",
+    "level": 3
+  },
+  {
+    "id": "article_gym",
+    "name": "Спортзал",
+    "parentId": "group_personal_care",
+    "level": 3
+  },
+  {
+    "id": "article_clothes",
+    "name": "Одежда",
+    "parentId": "group_clothing",
+    "level": 3
+  },
+  {
+    "id": "article_shoes",
+    "name": "Обувь",
+    "parentId": "group_clothing",
+    "level": 3
+  },
+  {
+    "id": "article_cinema",
+    "name": "Кино",
+    "parentId": "group_entertainment",
+    "level": 3
+  },
+  {
+    "id": "article_games",
+    "name": "Игры",
+    "parentId": "group_entertainment",
+    "level": 3
+  },
+  {
+    "id": "article_hobbies",
+    "name": "Хобби",
+    "parentId": "group_entertainment",
+    "level": 3
+  },
+  {
+    "id": "article_pharmacy",
+    "name": "Аптека",
+    "parentId": "group_health",
+    "level": 3
+  },
+  {
+    "id": "article_medicines",
+    "name": "Лекарства",
+    "parentId": "group_health",
+    "level": 3
+  },
+  {
+    "id": "article_doctor",
+    "name": "Врачи",
+    "parentId": "group_health",
+    "level": 3
+  },
+  {
+    "id": "article_courses",
+    "name": "Курсы",
+    "parentId": "group_education",
+    "level": 3
+  },
+  {
+    "id": "article_books",
+    "name": "Книги",
+    "parentId": "group_education",
+    "level": 3
+  },
+  {
+    "id": "article_school",
+    "name": "Школа",
+    "parentId": "group_education",
+    "level": 3
+  },
+  {
+    "id": "article_main_salary",
+    "name": "Основная зарплата",
+    "parentId": "group_salary",
+    "level": 3
+  },
+  {
+    "id": "article_bonus",
+    "name": "Премия",
+    "parentId": "group_salary",
+    "level": 3
+  },
+  {
+    "id": "group_investments",
+    "name": "Инвестиции",
+    "parentId": "type_income",
+    "level": 2
+  },
+  {
+    "id": "article_dividends",
+    "name": "Дивиденды",
+    "parentId": "group_investments",
+    "level": 3
+  },
+  {
+    "id": "article_savings",
+    "name": "Накопления",
+    "parentId": "group_investments",
+    "level": 3
+  },
+  {
+    "id": "group_other_income",
+    "name": "Прочие доходы",
+    "parentId": "type_income",
+    "level": 2
+  }
+]
