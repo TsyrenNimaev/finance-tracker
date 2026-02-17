@@ -17,6 +17,20 @@ export const useReport = (filters: ReportFilters): ReportResult => {
       return categories.filter((c) => c.parentId === parentId).map((c) => c.id);
     };
 
+    const isIncomeCategory = (categoryId: string): boolean => {
+      const category = categories.find((c) => c.id === categoryId);
+      if (!category) return false;
+
+      let current = category;
+      while (current.parentId) {
+        const parent = categories.find((c) => c.id === current.parentId);
+        if (!parent) break;
+        current = parent;
+      }
+
+      return current.id === 'type_income' || current.name === 'Доход';
+    };
+
     // Фильтрация по категориям
     if (filters.categoryLevel3Id) {
       // Выьрана конкретная статья
@@ -27,11 +41,13 @@ export const useReport = (filters: ReportFilters): ReportResult => {
       // Выбрана группа - включаем все статьи этой группы
       const childIds = getChildCategoryIds(filters.categoryLevel2Id);
       filtered = filtered.filter((t) => childIds.includes(t.categoryId));
+    } else {
+      return {
+        totalAmount: 0,
+        transactions: [],
+        byCategory: {},
+      };
     }
-    // const categoryFiltered =
-    //   filters.categoryIds.length > 0
-    //     ? dateFiltered.filter((t) => filters.categoryIds.includes(t.categoryId))
-    //     : dateFiltered;
 
     // Получение полного пути категории для каждой транзакции
     const getCategoryPath = (categoryId: string): string => {
@@ -58,14 +74,15 @@ export const useReport = (filters: ReportFilters): ReportResult => {
     const byCategory: Record<string, number> = {};
     const enrichedTransactions = filtered.map((t) => {
       const categoryPath = getCategoryPath(t.categoryId);
+      const isIncome = isIncomeCategory(t.categoryId);
 
-      byCategory[t.categoryId] =
-        (byCategory[t.categoryId] || 0) +
-        (t.type === 'income' ? t.amount : -t.amount);
+      const signedAmount = isIncome ? Math.abs(t.amount) : -Math.abs(t.amount);
+
+      byCategory[t.categoryId] = (byCategory[t.categoryId] || 0) + signedAmount;
 
       return {
         id: t.id,
-        amount: t.amount,
+        amount: signedAmount,
         description: t.description,
         date: t.date,
         categoryName:
@@ -76,7 +93,7 @@ export const useReport = (filters: ReportFilters): ReportResult => {
     });
 
     const totalAmount = enrichedTransactions.reduce(
-      (sum, t) => sum + t.amount * (t.categoryPath.includes('Доходы') ? 1 : -1),
+      (sum, t) => sum + t.amount,
       0,
     );
 
