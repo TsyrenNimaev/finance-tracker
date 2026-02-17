@@ -2,24 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { Transaction, TransactionState } from './types';
 
 const initialState: TransactionState = {
-  items: [
-    {
-      id: '1',
-      amount: 150,
-      description: 'Хлеб',
-      date: new Date().toISOString().split('T')[0],
-      type: 'expense',
-      categoryId: 'cat-3-1',
-    },
-    {
-      id: '2',
-      amount: 3000,
-      description: 'Зарплата',
-      date: new Date().toISOString().split('T')[0],
-      type: 'income',
-      categoryId: 'cat-1-1',
-    },
-  ],
+  items: [],
   isLoading: false,
   error: null,
 };

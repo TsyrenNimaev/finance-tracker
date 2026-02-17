@@ -1,8 +1,8 @@
+import { useMemo } from 'react';
 import { useAppSelector } from '@/app/store/hooks';
 import { Card } from '@/shared/ui/Card';
-import styles from './TotalBalance.module.scss';
 import type { Transaction } from '@/entities/transaction/model/types';
-import { useMemo } from 'react';
+import styles from './TotalBalance.module.scss';
 
 const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('ru-Ru', {

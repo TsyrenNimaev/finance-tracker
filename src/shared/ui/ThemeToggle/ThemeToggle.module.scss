@@ -1,16 +1,17 @@
+@use '../../../app/styles/mixins' as *;
+
 .toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  @include flex-center;
+  width: 48px;
+  height: 48px;
   background-color: var(--color-secondary);
   border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
+  border-radius: var(--border-radius-circle);
+  font-size: var(--font-size-md);
+  font-weight: var(--color-text);
   color: var(--color-text);
-  transition: all 0.3s ease;
+  transition: var(--transition-base);
+  cursor: pointer;
 
   &:hover {
     background-color: var(--color-secondary-hover);
@@ -27,23 +28,16 @@
   }
 
   .icon {
-    font-size: 20px;
-    transition: transform 0.3s ease;
+    font-size: var(--font-size-xl);
+    transition: transform var(--transition-duration) var(--transition-timing);
   }
 
   .text {
-    transition: opacity 0.2s ease;
+    display: none;
+    transition: opacity var(--transition-duration) var(--transition-timing);
   }
 
   &:hover .icon {
     transform: rotate(15deg);
-  }
-
-  :global([data-theme="dark"]) & {
-    background-color: var(--color-secondary);
-
-    &:hover {
-      background-color: var(--color-secondary-hover);
-    }
   }
 }

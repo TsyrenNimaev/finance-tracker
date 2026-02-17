@@ -1,47 +1,120 @@
 :root {
-  // Основные цвета
+  // COLORS
+  //==================================================
+  // Brand
   --color-primary: #4f46e5;
   --color-primary-hover: #4338ca;
   --color-secondary: #f3f4f6;
   --color-secondary-hover: #e5e7eb;
   
-  // Текст
+  // Text
   --color-text: #374151;
   --color-text-light: #6b7280;
-  
-  // Фон
+  --color-text-lighter: #9ca3af;
+
+  // Background
   --color-background: #ffffff;
   --color-background-secondary: #f9fafb;
   --card-bg: var(--color-background);
-  
-  // Границы
+
+  // Boder & Misc
   --color-border: #d1d5db;
+  --color-border-light: #e5e7eb;
   
-  // Состояния
+  // Status
   --color-error: #dc2626;
   --color-success: #059669;
   --color-warning: #d97706;
   --color-disabled: #f3f4f6;
-  
-  // Тени
-  --card-shadow: var(--shadow-md);
-  --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+
+  // SHADOWS
+  //==================================================
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+
+  // Card shadows
+  --card-shadow: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-lg);
+
+  // TYPOGRAPHY 
+  //==================================================
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-xxxl: 28px;
+  --font-size-xxxxl: 32px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  // SPACING 
+  //==================================================
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+  --spacing-xxxl: 32px;
+  --spacing-xxxxl: 40px;
+
+  // BORDERS
+  //==================================================
+  --border-width: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-circle: 50%;
+
+  // ANIMATIONS
+  //==================================================
+  --transition-duration: 0.2s;
+  --transition-timing: ease;
+  --transition-base: all var(--transition-duration) var(--transition-timing);
+
+  // LAYOUT
+  //==================================================
+  --container-max-width: 1200px;
+  --header-height: 60px; //
 }
 
+// DARK THEME
+//===================================================
+
 [data-theme="dark"] {
+  // Brand
   --color-primary: #6366f1;
   --color-primary-hover: #818cf8;
   --color-secondary: #374151;
   --color-secondary-hover: #4b5563;
+
+  // Text
   --color-text: #f9fafb;
   --color-text-light: #d1d5db;
+  --color-text-lighter: #9ca3af;
+
+  // Background
   --color-background: #111827;
   --color-background-secondary: #1f2937;
-  --color-border: #4b5563;
-  --color-disabled: #374151;
   --card-bg: var(--color-background-secondary);
-  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-  --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.4);
+
+  // Borders & Misc
+  --color-border: #4b5563;
+  --color-border-light: #374151;
+  --color-disabled: #374151;
+
+  // Shadows (переопределяем базовые тени для темной темы)
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.6);
 }

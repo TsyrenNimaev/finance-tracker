@@ -3,7 +3,7 @@ import type { Category, CategoriesState } from './types';
 
 const initialState: CategoriesState = {
   items: [
-    // Уровень 1: Типы операций
+    // Уровень1: Типы операций
     { id: 'income', name: 'Доход', parentId: null, level: 1 },
     { id: 'expense', name: 'Расходы', parentId: null, level: 1 },
 
