@@ -89,7 +89,7 @@ export const CategorySelected = ({ onSelect }: CategorySelectedProps) => {
           </select>
           <p className={styles.hint}>
             {!selectedLevel3
-              ? 'Показаьб все траты по выбранной категории'
+              ? 'Показать все траты по выбранной категории'
               : 'Показать траты по выбранной статье'}
           </p>
         </div>
