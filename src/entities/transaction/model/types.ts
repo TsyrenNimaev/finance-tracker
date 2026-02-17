@@ -13,7 +13,7 @@ export interface TransactionFormData {
   amount: number;
   description: string;
   type: TransactionType;
-  caterogyId: string;
+  cateroryId: string;
   date: string;
 }
 
