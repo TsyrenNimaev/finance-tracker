@@ -2,8 +2,9 @@ import { TransactionForm } from '@/features/transaction-form';
 import { TransactionList } from '@/features/transactions-list/ui/TransactionList';
 import { OfflineStatus } from '@/shared/ui/OfflineStatus/OfflineStatus';
 import { UpdatePrompt } from '@/shared/ui/UpdatePrompt/UpdatePrompt';
-import { TotalBalance } from '@/widgest/total-balance/TotalBalance';
+import { TotalBalance } from '@/widgets/total-balance/TotalBalance';
 import { StoreProvider } from './providers';
+import { Reports } from '@/features/reports/ui/Reports';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles/global.scss';
 
@@ -25,6 +26,10 @@ function App() {
           <div className='list-section'>
             <TransactionList />
           </div>
+        </div>
+
+        <div className='reports-section'>
+          <Reports />
         </div>
       </div>
     </StoreProvider>

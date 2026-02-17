@@ -1,12 +1,12 @@
-import { Provider } from 'react-redux';
 import { useEffect, type ReactNode } from 'react';
-import { store } from '../../../app/store';
+import { Provider } from 'react-redux';
+import { store } from '@/app/store';
+import { setTransactions } from '@/entities/transaction/model/slice';
+import { setCategories } from '@/entities/category/model/slice';
 import {
   loadCategoriesFromDB,
   loadTransactionsFromDB,
-} from '../../../shared/api/db-operations';
-import { setTransactions } from '../../../entities/transaction/model/slice';
-import { setCategories } from '../../../entities/category/model/slice';
+} from '@/shared/api/db-operations';
 
 interface StorePoviderProps {
   children: ReactNode;

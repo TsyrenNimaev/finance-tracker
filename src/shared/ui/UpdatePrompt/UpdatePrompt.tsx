@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import styles from './UpdatePrompt.module.scss';
 import { Button } from '../Button';
+import styles from './UpdatePrompt.module.scss';
 
 export const UpdatePrompt = () => {
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(
@@ -44,7 +44,7 @@ export const UpdatePrompt = () => {
 
   return (
     <div className={styles.updatePrompt}>
-      <span>ДОступна новая версия приложения</span>
+      <span>Доступна новая версия приложения</span>
       <Button onClick={handleUpdate} size='small'>
         Обновить
       </Button>

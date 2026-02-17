@@ -1,12 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CascadeSelectProps } from '../model/types';
+import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import styles from './CategoryCascadeSelect.module.scss';
-import { Button } from '../../../shared/ui/Button';
-import { Input } from '../../../shared/ui/Input';
+
+interface Option {
+  id: string;
+  name: string;
+}
 
 interface Props extends CascadeSelectProps {
-  options: Array<{ id: string; name: string }>;
+  options: Option[];
 }
 
 export const CategoryCascadeSelect = ({
@@ -30,7 +34,7 @@ export const CategoryCascadeSelect = ({
       onChange('', level);
       prevParentIdRef.current = parentCategoryId;
     }
-  }, [parentCategoryId, level, onChange]); // value
+  }, [parentCategoryId, level, onChange]);
 
   const handleCreateNew = useCallback(async () => {
     if (!newCategoryName.trim() || !onCreateCategory) return;
@@ -54,7 +58,7 @@ export const CategoryCascadeSelect = ({
             onChange={(e) => onChange(e.target.value, level)}
           >
             <option value=''>{placeholder}</option>
-            {options.map((option: any) => (
+            {options.map((option: Option) => (
               <option key={option.id} value={option.id}>
                 {option.name}
               </option>

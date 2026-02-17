@@ -1,23 +1,25 @@
+@use '../../../app/styles/mixins' as *;
+
 .card {
   background-color: var(--card-bg);
-  border-radius: 12px;
+  border-radius: var(--border-radius-lg);
   box-shadow: var(--card-shadow);
-  transition: all 0.2s ease;
+  transition: var(--transition-base);
 
   &.padding-none {
     padding: 0;
   }
 
   &.padding-small {
-    padding: 12px;
+    padding: var(--spacing-md);
   }
 
   &.padding-medium {
-    padding: 20px;
+    padding: var(--spacing-xl);
   }
 
   &.padding-large {
-    padding: 32px;
+    padding: var(--spacing-xxxl);
   }
 
   &.hoverable {
@@ -25,11 +27,5 @@
       box-shadow: var(--card-shadow-hover);
       transform: translateY(-2px);
     }
-  }
-
-  :global([data-theme="dark"]) & {
-    --card-bg: var(--color-background-secondary);
-    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-    --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.4);
   }
 }

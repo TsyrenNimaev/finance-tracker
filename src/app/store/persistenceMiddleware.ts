@@ -1,6 +1,6 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit';
+import { syncStoreWithDB } from '@/shared/api/db-operations';
 import type { RootState } from './rootReducers';
-import { syncStoreWithDB } from '../../shared/api/db-operations';
 
 export const persistenceMiddleware = createListenerMiddleware();
 

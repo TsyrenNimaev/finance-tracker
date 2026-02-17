@@ -1,6 +1,6 @@
 import type React from 'react';
 import { formatAmount } from '../lib/formatters';
-import { Input } from '../../../shared/ui/Input';
+import { Input } from '@/shared/ui/Input';
 
 interface AmountInputProps {
   value: string;

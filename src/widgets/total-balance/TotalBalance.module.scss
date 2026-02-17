@@ -1,0 +1,44 @@
+@use '../../app/styles/mixins.scss' as *;
+
+.totalBalance {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  color: white;
+  margin-bottom: var(--spacing-xxl);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.label {
+  display: block;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.9;
+  margin-bottom: var(--spacing-sm);
+}
+
+.amountWrapper {
+  margin-bottom: var(--spacing-lg);
+}
+
+.amount {
+  font-size: 36px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+.positive {
+  color: white;
+}
+
+.negative {
+  color: #ffe5e5;
+}
+
+.details {
+  @include flex-between;
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: var(--spacing-lg);
+}

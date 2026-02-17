@@ -11,6 +11,31 @@ import {
   addTransactionToDB,
 } from '@/shared/api/db-operations';
 
+// Функция для генерации ID в зависимости от уровня
+const generateCategoryId = (
+  level: number,
+  parentId?: string | null,
+): string => {
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2, 8);
+
+  switch (level) {
+    case 1: {
+      return `level1-${timestamp}-${random}`;
+    }
+    case 2: {
+      const parentPrefix = parentId === 'income' ? 'inc' : 'exp';
+      return `group-${parentPrefix}-${timestamp}`;
+    }
+    case 3: {
+      return `cat-${timestamp}-${random}`;
+    }
+    default: {
+      return `cat-${timestamp}-${random}`;
+    }
+  }
+};
+
 export const useTransactionForm = () => {
   const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.categories.items);
@@ -41,8 +66,15 @@ export const useTransactionForm = () => {
   // Добавление новой категории
   const handleCreateCategory = useCallback(
     async (name: string, parentId: string | null, level: number) => {
+      if (level === 2 && !parentId) {
+        throw new Error('Для создания категории нужен тип операции');
+      }
+
+      if (level === 3 && !parentId) {
+        throw new Error('Для создания статьи нужна категория');
+      }
       const newCategory: Category = {
-        id: `cat-${Date.now()}`,
+        id: generateCategoryId(level, parentId),
         name,
         parentId,
         level,
