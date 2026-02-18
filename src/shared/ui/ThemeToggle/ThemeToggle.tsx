@@ -1,22 +1,20 @@
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { Button } from '../Button';
 import styles from './ThemeToggle.module.scss';
 
-interface ThemeToggleProps {
-  isDark?: boolean;
-  onChange?: () => void;
-}
-
-export const ThemeToggle = ({ isDark = false, onChange }: ThemeToggleProps) => {
+export const ThemeToggle = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
-    <button
-      type='button'
+    <Button
+      onClick={toggleTheme}
+      variant='secondary'
+      size='small'
       className={styles.toggle}
-      onClick={onChange}
       aria-label={
-        isDark ? 'Переключить на светлую тему' : 'Переключить на темную тему'
+        theme === 'light' ? 'Включить тёмную тему' : 'Включить светлую тему'
       }
     >
-      <span className={styles.icon}>{isDark ? '🌙' : '☀️'}</span>
-      <span className={styles.text}>{isDark ? 'Темная' : 'Светлая'}</span>
-    </button>
+      {theme === 'light' ? '🌙' : '☀️'}
+    </Button>
   );
 };
