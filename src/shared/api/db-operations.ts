@@ -1,5 +1,5 @@
-import type { Category } from '../../entities/category/model/types';
-import type { Transaction } from '../../entities/transaction/model/types';
+import type { Category } from '@/entities/category/model/types';
+import type { Transaction } from '@/entities/transaction/model/types';
 import { db } from './db';
 
 // Транзакции

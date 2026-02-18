@@ -1,28 +1,30 @@
+@use '../../../app/styles/mixins.scss' as *;
+
 .formCard {
   min-width: 500px;
   margin: 0 auto;
 }
 
 .title {
-  margin-bottom: 24px;
-  font-size: 24px;
+  margin-bottom: var(--spacing-xxl);
+  font-size: var(--font-size-xxl);
   text-align: center;
 }
 
 .fieldGroup {
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-xl);
 }
 
 .label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
 }
 
 .typeButtons {
   display: flex;
-  gap: 12px;
+  gap: var(--spacing-md);
 }
 
 .typeButton {
@@ -30,25 +32,58 @@
 }
 
 .textInput {
-  width: 100%;
-  padding: 10px 14px;
-  border: 2px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 16px;
-
-  &:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
+  @include input-base;
 }
 
 .error {
   display: block;
-  margin-top: 4px;
+  margin-top: var(--spacing-xs);
   color: var(--color-error);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }
 
 .actions {
-  margin-top: 32px;
+  margin-top: var(--spacing-xxxl);
+}
+
+.datePickerPopper {
+  :global {
+    .react-datepicker {
+      background-color: var(--color-background);
+      border-color: var(--color-border);
+      color: var(--color-text);
+    }
+      
+    .react-datepicker__header {
+      background-color: var(--color-secondary);
+      border-bottom-color: var(--color-border);
+    }
+
+    .react-datepicker__current-month,
+    .react-datepicker__day-name {
+      color: var(--color-text);
+    }
+
+    .react-datepicker__day {
+      color: var(--color-text);
+      border-radius: var(--border-radius-sm);
+
+      &:hover {
+        background-color: var(--color-secondary-hover);
+      }
+
+      &--selected {
+        background-color: var(--color-primary);
+        color: white;
+
+        &:hover {
+          background-color: var(--color-primary-hover);
+        }
+      }
+
+      &--keyboard-selected {
+        background-color: var(--color-primary);
+      }
+    }
+  }
 }

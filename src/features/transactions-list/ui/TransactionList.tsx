@@ -4,7 +4,7 @@ import { deleteTransactionFromDB } from '../../../shared/api/db-operations';
 import { Card } from '../../../shared/ui/Card';
 import { useEnrichedTransactions } from '../model/hooks';
 import { DayGroup } from './DayGroup';
-import style from './TransactionList.module.scss';
+import styles from './TransactionList.module.scss';
 
 export const TransactionList = () => {
   const dispatch = useAppDispatch();
@@ -36,17 +36,17 @@ export const TransactionList = () => {
 
   if (transactions.length === 0) {
     return (
-      <Card padding='large' className={style.empty}>
+      <Card padding='large' className={styles.empty}>
         <p>Пока нет ни одной транзакции</p>
-        <p className={style.hint}>
-          Добавте первую транзакцию через форму справа
+        <p className={styles.hint}>
+          Добавьте первую транзакцию через форму справа
         </p>
       </Card>
     );
   }
 
   return (
-    <div className={style.list}>
+    <div className={styles.list}>
       {Object.entries(groupedTransactions).map(([date, dayTransactions]) => (
         <DayGroup
           key={date}

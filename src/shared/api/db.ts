@@ -1,6 +1,6 @@
 import Dexie, { type Table } from 'dexie';
-import type { Transaction } from '../../entities/transaction/model/types';
-import type { Category } from '../../entities/category/model/types';
+import type { Transaction } from '@/entities/transaction/model/types';
+import type { Category } from '@/entities/category/model/types';
 
 export class FinanceDB extends Dexie {
   transactions!: Table<Transaction, string>;

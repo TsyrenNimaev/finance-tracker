@@ -1,33 +1,41 @@
-// import { Button } from '../shared/ui/Button';
-// import { Card } from '../shared/ui/Card';
-// import { Input } from '../shared/ui/Input';
-// import { ThemeToggle } from '../shared/ui/ThemeToggle';
-import { TransactionForm } from '../features/transaction-form';
-import { TransactionList } from '../features/transactions-list/ui/TransactionList';
-import { OfflineStatus } from '../shared/ui/OfflineStatus/OfflineStatus';
-import { UpdatePrompt } from '../shared/ui/UpdatePrompt/UpdatePrompt';
-import { StoreProvider } from './providers';
+import { TransactionForm } from '@/features/transaction-form';
+import { TransactionList } from '@/features/transactions-list/ui/TransactionList';
+import { OfflineStatus } from '@/shared/ui/OfflineStatus/OfflineStatus';
+import { UpdatePrompt } from '@/shared/ui/UpdatePrompt/UpdatePrompt';
+import { TotalBalance } from '@/widgets/total-balance/TotalBalance';
+import { StoreProvider, ThemeProvider } from './providers';
+import { Reports } from '@/features/reports/ui/Reports';
+import 'react-datepicker/dist/react-datepicker.css';
+import { ThemeToggle } from '@/shared/ui/ThemeToggle';
 import './styles/global.scss';
-// import { TestComponent } from './TestComponent';
 
 function App() {
   return (
     <StoreProvider>
-      <OfflineStatus />
-      <UpdatePrompt />
-      <div className='app'>
-        <h1>Finance Tracker PWA</h1>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 2fr',
-            gap: '40px',
-          }}
-        >
-          <TransactionForm />
-          <TransactionList />
+      <ThemeProvider>
+        <OfflineStatus />
+        <UpdatePrompt />
+        <div className='app'>
+          <header className='header'>
+            <h1>Finance Tracker PWA</h1>
+            <ThemeToggle />
+          </header>
+
+          <TotalBalance />
+          <div className='content'>
+            <div className='form-section'>
+              <TransactionForm />
+            </div>
+            <div className='list-section'>
+              <TransactionList />
+            </div>
+          </div>
+
+          <div className='reports-section'>
+            <Reports />
+          </div>
         </div>
-      </div>
+      </ThemeProvider>
     </StoreProvider>
   );
 }

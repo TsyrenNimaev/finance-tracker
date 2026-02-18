@@ -1,7 +1,9 @@
+@use '../../../app/styles/mixins' as *;
+
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--spacing-xs);
 
   &.fullWidth {
     width: 100%;
@@ -9,23 +11,14 @@
 }
 
 .label {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
 }
 
 .input {
-  padding: 10px 14px;
-  border: 2px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.2s ease;
-  background-color: white;
-
-  &:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
+  @include input-base;
+  background-color: var(--color-background);
 
   &.error {
     border-color: var(--color-error);
@@ -34,14 +27,9 @@
   &.fullWidth {
     width: 100%;
   }
-
-  &:disabled {
-    background-color: var(--color-disabled);
-    cursor: not-allowed;
-  }
 }
 
 .errorText {
   color: var(--color-error);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }

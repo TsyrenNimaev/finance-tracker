@@ -1,10 +1,12 @@
+@use '../../../app/styles/mixins.scss' as *;
+
 .transaction {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 12px 0;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
   border-bottom: 1px solid var(--color-border);
-  transition: background-color 0.2s ease;
+  transition: var(--transition-base);
 
   &:hover {
     background-color: var(--color-background-secondary);
@@ -18,14 +20,12 @@
 .icon {
   width: 40px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   background-color: var(--color-secondary);
-  border-radius: 12px;
-  font-size: 20px;
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-xl);
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-duration) var(--transition-timing);
 
   .transaction:hover & {
     transform: scale(1.05);
@@ -38,29 +38,26 @@
 }
 
 .main {
-  display: flex;
-  justify-content: space-between;
+  @include flex-between;
   align-items: baseline;
-  margin-bottom: 4px;
-  gap: 12px;
+  margin-bottom: var(--spacing-xs);
+  gap: var(--spacing-md);
 }
 
 .category {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @include text-truncate;
 
   strong {
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
   }
 }
 
 .amount {
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -76,33 +73,17 @@
 .details {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13px;
+  gap: var(--spacing-md);
+  font-size: var(--font-size-xs);
   color: var(--color-text-light);
 }
 
 .description {
   min-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @include text-truncate;
 
   &:empty {
     display: none;
-  }
-}
-
-.time {
-  font-size: 13px;
-  color: var(--color-text-light);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-
-  &::before {
-    content: "•";
-    margin-right: 4px;
-    color: var(--color-border);
   }
 }
 
@@ -110,13 +91,13 @@
   background: none;
   border: none;
   color: var(--color-text-light);
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
   opacity: 0.7;
-  transition:  all 0.2s ease;
+  transition:  var(--transition-base);
   line-height: 1;
   flex-shrink: 0;
 
@@ -126,8 +107,8 @@
     background-color: rgba(220, 38, 38, 0.1);
   }
 
-  :focus {
+  &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(220, 38, 38, 00.2);
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
   }
 }

@@ -1,8 +1,9 @@
 @use '../../../app/styles/variables.scss';
+@use '../../../app/styles/mixins.scss' as *;
 
 .dayGroup {
-  margin-bottom: 16px;
-  transition: box-shadow 0.2s ease;
+  margin-bottom: var(--spacing-lg);
+  transition: var(--transition-base);
 
   &:hover {
     box-shadow: var(--shadow-md);
@@ -10,17 +11,16 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  @include flex-between;
   align-items: baseline;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: var(--border-width) solid var(--color-primary);
 }
 
 .date {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: ar(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   text-transform: capitalize;
   margin: 0;
@@ -31,8 +31,8 @@
 }
 
 .total {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
 
   &.positive {
     color: var(--color-success);

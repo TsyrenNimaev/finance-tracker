@@ -4,18 +4,17 @@ export interface Transaction {
   id: string;
   amount: number;
   description: string;
-  date: string; //ISO строка
+  date: string; // Формат "YYYY-MM-DD"
   type: TransactionType;
   categoryId: string; // Ссылка на ID категории 3-го уровня
-  createdAt: string;
 }
 
 export interface TransactionFormData {
   amount: number;
   description: string;
   type: TransactionType;
-  caterogyId: string;
-  date?: string;
+  cateroryId: string;
+  date: string;
 }
 
 export interface TransactionState {

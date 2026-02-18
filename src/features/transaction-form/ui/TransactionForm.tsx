@@ -1,11 +1,13 @@
 import { useCallback, useMemo, type SyntheticEvent } from 'react';
+import { ru } from 'date-fns/locale';
+import { Card } from '@/shared/ui/Card';
+import { Button } from '@/shared/ui/Button';
 import { useTransactionForm } from '../model/hooks';
-import styles from './TransactionForm.module.scss';
-import { Card } from '../../../shared/ui/Card';
-import { TRANSACTION_TYPES } from '../model/constants';
-import { Button } from '../../../shared/ui/Button';
 import { AmountInput } from './AmountInput';
 import { CategoryCascadeSelect } from './CategoryCascadeSelect';
+import { DatePickerInput } from './DatePickerInput';
+import DatePicker from 'react-datepicker';
+import styles from './TransactionForm.module.scss';
 
 export const TransactionForm = () => {
   const {
@@ -18,22 +20,18 @@ export const TransactionForm = () => {
     getCategoryForLevel,
   } = useTransactionForm();
 
-  const level2Categories = getCategoryForLevel(2, formData.categoryLevel1);
-  const level3Categories = getCategoryForLevel(3, formData.categoryLevel2);
-
-  const level2Options = useMemo(
-    () => level2Categories.map((cat) => ({ id: cat.id, name: cat.name })),
-    [level2Categories],
-  );
-  const level3Options = useMemo(
-    () => level3Categories.map((cat) => ({ id: cat.id, name: cat.name })),
-    [level3Categories],
-  );
+  const level2Options = useMemo(() => {
+    const categories = getCategoryForLevel(2, formData.categoryLevel1);
+    return categories.map((cat) => ({ id: cat.id, name: cat.name }));
+  }, [getCategoryForLevel, formData.categoryLevel1]);
+  const level3Options = useMemo(() => {
+    const categories = getCategoryForLevel(3, formData.categoryLevel2);
+    return categories.map((cat) => ({ id: cat.id, name: cat.name }));
+  }, [getCategoryForLevel, formData.categoryLevel2]);
 
   const handleLevel2Change = useCallback(
     (value: string) => {
       updateField('categoryLevel2', value);
-      updateField('categoryLevel3', '');
     },
     [updateField],
   );
@@ -63,30 +61,50 @@ export const TransactionForm = () => {
     await handleSubmit();
   };
 
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      updateField('date', `${year}-${month}-${day}`);
+    } else {
+      updateField('date', '');
+    }
+  };
+
+  const isIncomeActive = formData.categoryLevel1 === 'type_income';
+  const isExpenseActive = formData.categoryLevel1 === 'type_expense';
+
   return (
     <Card padding='large' className={styles.formCard}>
       <h2 className={styles.title}>Добавить транзакцию</h2>
 
       <form onSubmit={handleFormSubmit}>
         <div className={styles.fieldGroup}>
-          <label className={styles.label}>ТИп операции</label>
+          <label className={styles.label}>Тип операции</label>
           <div className={styles.typeButtons}>
-            {TRANSACTION_TYPES.map(({ value, label }) => (
-              <Button
-                key={value}
-                type='button'
-                variant={formData.type === value ? 'primary' : 'secondary'}
-                onClick={() => {
-                  updateField('type', value);
-                  updateField('categoryLevel1', value);
-                  updateField('categoryLevel2', '');
-                  updateField('categoryLevel3', '');
-                }}
-                className={styles.typeButton}
-              >
-                {label}
-              </Button>
-            ))}
+            <Button
+              type='button'
+              variant={isIncomeActive ? 'primary' : 'secondary'}
+              onClick={() => {
+                updateField('type', 'income');
+                updateField('categoryLevel1', 'type_income');
+              }}
+              className={styles.typeButton}
+            >
+              Доход
+            </Button>
+            <Button
+              type='button'
+              variant={isExpenseActive ? 'primary' : 'secondary'}
+              onClick={() => {
+                updateField('type', 'expense');
+                updateField('categoryLevel1', 'type_expense');
+              }}
+              className={styles.typeButton}
+            >
+              Расход
+            </Button>
           </div>
         </div>
 
@@ -108,6 +126,20 @@ export const TransactionForm = () => {
           {errors.description && (
             <span className={styles.error}>{errors.description}</span>
           )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <DatePicker
+            selected={
+              formData.date ? new Date(formData.date + 'T12:00:00') : null
+            }
+            onChange={handleDateChange}
+            locale={ru}
+            dateFormat='dd.MM.yyyy'
+            customInput={<DatePickerInput />}
+            popperClassName={styles.datePickerPopper}
+            placeholderText='Выберите дату'
+          />
         </div>
 
         <div className={styles.fieldGroup}>
