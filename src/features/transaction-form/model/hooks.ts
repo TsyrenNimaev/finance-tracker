@@ -11,6 +11,7 @@ import {
   addTransactionToDB,
 } from '@/shared/api/db-operations';
 
+<<<<<<< HEAD
 // Функция для генерации читаемого ID
 const generateCategoryId = (name: string, level: number): string => {
   const timestamp = Date.now();
@@ -64,6 +65,31 @@ const generateCategoryId = (name: string, level: number): string => {
 
   const prefix = level === 2 ? 'group' : level === 3 ? 'article' : 'cat';
   return `${prefix}_${slug}_${timestamp}`;
+=======
+// Функция для генерации ID в зависимости от уровня
+const generateCategoryId = (
+  level: number,
+  parentId?: string | null,
+): string => {
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2, 8);
+
+  switch (level) {
+    case 1: {
+      return `level1-${timestamp}-${random}`;
+    }
+    case 2: {
+      const parentPrefix = parentId === 'income' ? 'inc' : 'exp';
+      return `group-${parentPrefix}-${timestamp}`;
+    }
+    case 3: {
+      return `cat-${timestamp}-${random}`;
+    }
+    default: {
+      return `cat-${timestamp}-${random}`;
+    }
+  }
+>>>>>>> b8e8feacaf84f2cd5f327bdfdfa70d88792f6eaf
 };
 
 export const useTransactionForm = () => {
@@ -126,6 +152,7 @@ export const useTransactionForm = () => {
   // Добавление новой категории
   const handleCreateCategory = useCallback(
     async (name: string, parentId: string | null, level: number) => {
+<<<<<<< HEAD
       // Префикс в зависимости от уровня
       // let prefix = '';
       if (level === 2 && !parentId) {
@@ -141,6 +168,18 @@ export const useTransactionForm = () => {
       const newCategory: Category = {
         id: generateCategoryId(name, level),
         name: name.trim(),
+=======
+      if (level === 2 && !parentId) {
+        throw new Error('Для создания категории нужен тип операции');
+      }
+
+      if (level === 3 && !parentId) {
+        throw new Error('Для создания статьи нужна категория');
+      }
+      const newCategory: Category = {
+        id: generateCategoryId(level, parentId),
+        name,
+>>>>>>> b8e8feacaf84f2cd5f327bdfdfa70d88792f6eaf
         parentId,
         level,
       };
