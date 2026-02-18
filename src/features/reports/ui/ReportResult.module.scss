@@ -77,27 +77,12 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
   line-height: 1.4;
-
-  :global {
-    .arrow {
-      color: var(--color-text-light);
-      margin: 0 var(--spacing-xs);
-    }
-  }
 }
 
 .amount {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   white-space: nowrap;
-
-  :has(> span.positive) {
-    color: var(--color-success);
-  }
-
-  :has(> span.negative) {
-    color: var(--color-error);
-  }
 }
 
 .transactionDetails {

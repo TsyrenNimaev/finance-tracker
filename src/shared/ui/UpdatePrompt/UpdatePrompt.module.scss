@@ -13,6 +13,7 @@
   box-shadow: var(--shadow-md);
   z-index: 1000;
   @include slide-in-up(0.3s);
+  
   span {
     color: var(--color-text);
     font-weight: var(--font-weight-medium);

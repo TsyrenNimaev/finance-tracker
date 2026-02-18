@@ -64,7 +64,7 @@ export const Reports = () => {
         <h3 className={styles.resultsTitle}>
           Результаты
           {filters.categoryLevel2Id && (
-            <span className={styles.selectedCategoty}>
+            <span className={styles.selectedCategory}>
               {categories.find((c) => c.id === filters.categoryLevel2Id)?.name}
               {filters.categoryLevel3Id &&
                 ` → ${categories.find((c) => c.id === filters.categoryLevel3Id)?.name}`}
