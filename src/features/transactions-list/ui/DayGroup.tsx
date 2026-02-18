@@ -43,7 +43,7 @@ export const DayGroup = ({ date, transactions, onDelete }: DayGroupProps) => {
         </span>
       </div>
 
-      <div className={styles.transaction}>
+      <div className={styles.transactions}>
         {transactions.map((transaction) => (
           <TransactionItem
             key={transaction.id}
