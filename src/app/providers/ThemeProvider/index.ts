@@ -1,2 +1,2 @@
-export { StoreProvider } from './StoreProvider';
 export { ThemeProvider } from './ThemeProvider';
+export { ThemeContext } from './ThemeContext';

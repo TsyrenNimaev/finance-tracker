@@ -1,7 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { Category, CategoriesState } from './types';
+import initialCategories from './initialCategories.json';
 
 const initialState: CategoriesState = {
+<<<<<<< HEAD
+  items: initialCategories as Category[],
+=======
   items: [
     // Уровень1: Типы операций
     { id: 'income', name: 'Доход', parentId: null, level: 1 },
@@ -23,6 +27,7 @@ const initialState: CategoriesState = {
     { id: 'cat-3-3', name: 'Телефон', parentId: 'communication', level: 3 },
     { id: 'cat-3-4', name: 'Основная зарплата', parentId: 'salary', level: 3 },
   ],
+>>>>>>> b8e8feacaf84f2cd5f327bdfdfa70d88792f6eaf
   isLoading: false,
   error: null,
 };
@@ -31,7 +36,7 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    addCaregory: (state, action: PayloadAction<Category>) => {
+    addCategory: (state, action: PayloadAction<Category>) => {
       state.items.push(action.payload);
     },
     updateCategory: (state, action: PayloadAction<Category>) => {
@@ -49,7 +54,7 @@ const categoriesSlice = createSlice({
   },
 });
 
-export const { addCaregory, updateCategory, deleteCategory, setCategories } =
+export const { addCategory, updateCategory, deleteCategory, setCategories } =
   categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

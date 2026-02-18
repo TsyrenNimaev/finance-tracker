@@ -4,7 +4,7 @@ export interface TransactionFormData {
   amount: string;
   description: string;
   type: TransactionType;
-  categoryLevel1: string; // 'income' or 'expense'
+  categoryLevel1: string;
   categoryLevel2: string;
   categoryLevel3: string;
   date: string;
